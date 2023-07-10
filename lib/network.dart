@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkHelper {
@@ -16,9 +16,11 @@ class NetworkHelper {
 
       return jsonDecode(data);
     } else {
-      if (kDebugMode) {
-        print(response.statusCode);
-      }
+      return const Scaffold(
+        body: Center(
+          child: Text('Failed to fetch data!'),
+        ),
+      );
     }
   }
 }
